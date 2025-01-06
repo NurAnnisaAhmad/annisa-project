@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annisa Project</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            background: linear-gradient(to right, #fce4ec, #f8bbd0);
+            color: #4a148c;
+        }
+        .sidebar {
+            position: sticky;
+            top: 0;
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(180deg, #f06292, #d81b60);
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        .sidebar h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .content-container {
+            flex-grow: 1;
+            padding: 30px;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .content h2 {
+            color: #d81b60;
+            margin-bottom: 15px;
+        }
+        .content p {
+            margin-bottom: 15px;
+        }
+        .active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        form {
+            background: #fce4ec;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            background: #d81b60;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        form button:hover {
+            background: #c2185b;
+        }
+        #results {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #results p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(180deg, #b98b9a, #aa6f84);
+            color: white;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .sidebar h1 {
+        font-size: 20px;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .content-container {
+        padding: 15px;
+    }
+
+    form input, form button {
+        font-size: 14px;
+    }
+
+    img {
+        width: 100%; /* Gambar otomatis menyesuaikan layar */
+        height: auto;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Kalkulator Penjualan</h1>
+        <a href="#home" onclick="showContent('home')">Home</a>
+        <a href="#profile" onclick="showContent('profile')">Profil</a>
+        <a href="#about" onclick="showContent('about')">About</a>
+        <a href="#gallery" onclick="showContent('gallery')">Gallery</a>
+        <a href="#project" onclick="showContent('project')">Project</a>
+        <a href="#contact" onclick="showContent('contact')">Kontak</a>
+    </div>
+    <div class="content-container">
+        <div id="home" class="content active">
+            <h2>Home</h2>
+            <p>Selamat datang di Kalkulator Penjualan, aplikasi yang memudahkan Anda dalam menghitung total belanja dengan cara yang cepat dan praktis. Masukkan harga dan jumlah barang, dan aplikasi ini akan menghitung total harga serta memberikan diskon otomatis jika memenuhi syarat.</p>
+            <p>Nikmati kemudahan berbelanja dengan lebih hemat!</p>
+        </p>
+        </div>
+        <div id="profile" class="content">
+            <h2>Profil Pembuat Web</h2>
+            <img src="https://imagizer.imageshack.com/img924/4784/gvF3dw.jpg" alt="Foto" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover;">
+            <p>Nama: Nur Annisa Ahmad</p>
+            <p>Mahasiswa: Universitas Pamulang</p>
+            <p>Jurusan: Teknik Informatika</p>
+            <p>Hobi: Belajar Teknologi dan Pemrograman Web</p>
+        </div>
+        <div id="about" class="content">
+            <h2>About</h2>
+            <p>Aplikasi ini dirancang untuk mempermudah pengguna dalam menghitung total belanja dengan cara yang efisien. Cukup masukkan nama barang, harga, dan jumlah barang yang ingin dibeli, dan aplikasi akan secara otomatis menghitung total harga serta diskon yang dapat diterapkan.
+               Jika total harga pembelian di bawah Rp 300.000 maka tidak mendapatkan diskon.</p>
+            <p>Aplikasi ini dibuat menggunakan kombinasi teknologi <strong>HTML</strong>, <strong>CSS</strong>, dan <strong>JavaScript</strong>:</p>
+            <ul>
+                <li><strong>HTML</strong>: Untuk membuat struktur halaman web.</li>
+                <li><strong>CSS</strong>: Untuk memberikan gaya dan tata letak halaman agar lebih menarik.</li>
+                <li><strong>JavaScript</strong>: Untuk menambahkan logika perhitungan, validasi, dan interaktivitas.</li>
+            </ul>
+            <p>Aplikasi ini bertujuan untuk memberikan pengalaman belanja yang lebih mudah dan menghemat waktu Anda.</p>
+        </div>
+        <div id="gallery" class="content">
+            <h2>Gallery</h2>
+            <p>Produk yang ada di Toko</p>
+            <p>Kerudung</p>
+             <img src="https://imagizer.imageshack.com/img922/1987/KnsYB2.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img922/4658/MUVtPG.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img923/2063/0WtmA8.jpg" width="260" height="220">
+            <p>Baju</p>
+             <img src="https://imagizer.imageshack.com/img923/7980/T1KUMq.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img924/9561/Q9ppAy.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img923/6665/8ouBDk.jpg" width="260" height="220">
+            <p>Celana</p>
+             <img src="https://imagizer.imageshack.com/img923/1726/en6oz1.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img924/1348/aA6PBF.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img923/2641/KC7XB8.jpg" width="260" height="220">
+            <p>Rok</p>
+             <img src="https://imagizer.imageshack.com/img923/9474/oCvyB3.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img923/7105/jYTbrj.jpg" width="260" height="220">
+             <img src="https://imagizer.imageshack.com/img924/9600/ROBbsW.jpg" width="260" height="220">
+        </div>
+        <div id="project" class="content">
+            <h2>Project: Kalkulator Penjualan</h2>
+            <form onsubmit="return calculateSales()">
+                <label for="itemName">Nama Barang:</label>
+                <input type="text" id="itemName" placeholder="Masukkan nama barang..." required>
+                <label for="itemPrice">Harga Barang (Rp):</label>
+                <input type="number" id="itemPrice" min="1" placeholder="Masukkan harga barang..." required>
+                <label for="itemQuantity">Jumlah Barang:</label>
+                <input type="number" id="itemQuantity" min="1" placeholder="Masukkan jumlah barang..." required>
+                <button type="submit">Hitung Total</button>
+            </form>
+            <div id="results">
+                <h3>Hasil Perhitungan:</h3>
+                <p><strong>Nama Barang:</strong> <span id="resultName">-</span></p>
+                <p><strong>Total Harga:</strong> Rp <span id="resultTotal">0</span></p>
+                <p><strong>Diskon:</strong> Rp <span id="resultDiscount">0</span></p>
+                <p><strong>Total Bayar:</strong> Rp <span id="resultPay">0</span></p>
+            </div>
+        </div>
+        <div id="contact" class="content">
+            <h2>Kontak</h2>
+            <p>Jika Anda memiliki pertanyaan atau ingin menghubungi kami, silakan kirim pesan ke alamat email atau telepon kami:</p>
+            <p>Email: <a href="mailto:propertiannisa18@gmail.com">propertiannisa18@gmail.com</a></p>
+            <p>Telepon: <a href="tel:+6281905341169">+62 819 0534 1169</a></p>
+        </div>    
+    </div>
+
+    <footer>
+        <p>Admin Web: <strong>Nur Annisa Ahmad</strong></p>
+    </footer>    
+
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function calculateSales() {
+    // Ambil nilai input dari form
+    const itemName = document.getElementById('itemName').value.trim();
+    const itemPrice = parseFloat(document.getElementById('itemPrice').value);
+    const itemQuantity = parseInt(document.getElementById('itemQuantity').value);
+
+    // Validasi input
+    if (!itemName || isNaN(itemPrice) || isNaN(itemQuantity) || itemPrice <= 0 || itemQuantity <= 0) {
+        alert('Mohon isi semua data dengan benar.');
+        return false;
+    }
+
+    // Hitung total harga
+    const total = itemPrice * itemQuantity;
+
+    // Hitung diskon
+    let discount = 0;
+    if (total > 300000) {
+    discount = total * 0.1; // Diskon 10% jika total lebih dari 300 ribu
+}
+
+    // Total bayar
+    const totalPay = total - discount;
+
+    // Tampilkan hasil perhitungan
+    document.getElementById('resultName').textContent = itemName;
+    document.getElementById('resultTotal').textContent = total.toLocaleString('id-ID');
+    document.getElementById('resultDiscount').textContent = discount.toLocaleString('id-ID');
+    document.getElementById('resultPay').textContent = totalPay.toLocaleString('id-ID');
+
+    return false;
+}
+    </script>
+</body>
+</html>
